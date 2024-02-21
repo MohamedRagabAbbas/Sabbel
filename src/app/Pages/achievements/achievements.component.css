@@ -1,0 +1,31 @@
+
+.inner-lay
+{
+    text-align: center;
+}
+.doctor-message {
+    background-image: url("../../../assets/Images/road.jpg");
+    background-attachment: fixed;
+    background-size: cover; }
+    .doctor-message .session-title h2 {
+      color: #FFF; }
+  
+  .doctor-message .inner-lay {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 50px;
+    color: #FFF; }
+  
+  @media screen and (max-width: 940px) {
+    .doctor-message .inner-lay {
+      padding: 30px 10px; } }
+  .doctor-message .inner-lay .numb {
+    text-align: center;
+    padding: 30px; }
+  
+  .doctor-message .inner-lay .numb h3 {
+    font-size: 42px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 20px;
+    color: #FFF; }
+  

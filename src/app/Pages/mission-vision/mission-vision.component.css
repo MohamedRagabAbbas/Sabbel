@@ -1,0 +1,52 @@
+
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; }
+  img {
+    max-width: 90%;
+    max-height: 95%; }
+ 
+/* ===================================== Mission Vision CSS ================================== */
+.mission-vision {
+    background-color: #FFF;
+  }
+
+  p {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: #264d45;
+    text-align: justify;
+    font-size: 1.1rem;
+    padding: 20px;
+  }
+  h1 {
+    font-weight: 600;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #349A46;
+  }
+  img {
+    border-radius: 10px;
+  }
+  .mission-vision .mission,
+  .mission-vision .vision {
+    padding: 50px;
+    text-align: center; /* Center the content */
+  }
+  
+  @media screen and (max-width: 940px) {
+    .mission-vision .mission,
+    .mission-vision .vision {
+      padding: 30px 10px;
+    }
+  }
+  
+  .mission-vision .mv-det {
+    margin: auto;
+  }
+
+  
+  
+

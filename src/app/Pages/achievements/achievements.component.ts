@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-achievements',
+  selector: 'achievements',
   standalone: true,
   imports: [],
   templateUrl: './achievements.component.html',

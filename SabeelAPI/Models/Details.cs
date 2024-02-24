@@ -5,7 +5,9 @@ namespace SabeelAPI.Models
   public class Details
   {
     public int Id { get; set; }
-    public string About { get; set; } = string.Empty;
+    public string About1 { get; set; } = string.Empty;
+    public string About2 { get; set; } = string.Empty;
+    public string About3 { get; set; } = string.Empty;
     public string Mission { get; set; } = string.Empty;
     public string vision { get; set; } = string.Empty;
     public string EventsGoal { get; set; } = string.Empty;

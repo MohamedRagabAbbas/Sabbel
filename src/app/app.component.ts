@@ -40,7 +40,7 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
-        this.isLogInPageActive = (event.url === '/log-in');
+        this.isLogInPageActive = (event.url === '/log-in' || event.url === '/dashboard');
       }
     });
   }

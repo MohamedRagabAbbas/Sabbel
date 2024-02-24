@@ -242,7 +242,7 @@ namespace SabeelAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
                 });
 
             modelBuilder.Entity("SabeelAPI.Models.Details", b =>
@@ -283,7 +283,7 @@ namespace SabeelAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Details");
+                    b.ToTable("Details", (string)null);
                 });
 
             modelBuilder.Entity("SabeelAPI.Models.Event", b =>
@@ -322,7 +322,7 @@ namespace SabeelAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Events");
+                    b.ToTable("Events", (string)null);
                 });
 
             modelBuilder.Entity("SabeelAPI.Models.TeemMember", b =>
@@ -345,7 +345,7 @@ namespace SabeelAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TeemMembers");
+                    b.ToTable("TeemMembers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

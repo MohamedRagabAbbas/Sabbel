@@ -1,9 +1,10 @@
-<navbar></navbar>
-<home></home>
-<about></about>
-<mission-vision></mission-vision>
-<events></events>
-<achievements></achievements>
-<team></team>
-<foter></foter>
 <router-outlet></router-outlet>
+<navbar *ngIf="!isLogInPageActive"></navbar>
+<home *ngIf="!isLogInPageActive"></home>
+<about *ngIf="!isLogInPageActive"></about>
+<mission-vision *ngIf="!isLogInPageActive"></mission-vision>
+<events *ngIf="!isLogInPageActive"></events>
+<achievements *ngIf="!isLogInPageActive"></achievements>
+<team *ngIf="!isLogInPageActive"></team>
+<foter *ngIf="!isLogInPageActive"></foter>
+

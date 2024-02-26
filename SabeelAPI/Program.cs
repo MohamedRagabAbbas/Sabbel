@@ -31,7 +31,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Add Identity
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
+    .AddDefaultTokenProviders().
+    AddDefaultUI();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -72,19 +73,6 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.Zero
       };
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

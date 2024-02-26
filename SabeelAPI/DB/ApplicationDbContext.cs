@@ -10,7 +10,7 @@ namespace SabeelAPI.DB
     public DbSet<TeemMember> TeemMembers { get; set; } 
     public DbSet<Event> Events { get; set; }
     public DbSet<Contacts> Contacts { get; set; }
- 
+    public DbSet<User> Users { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
     {
@@ -19,6 +19,7 @@ namespace SabeelAPI.DB
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+
       builder.Entity<Details>().HasData(
         new Details
         {

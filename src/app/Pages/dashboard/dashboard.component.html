@@ -1,89 +1,17 @@
-<div class="mainContainer">
-    <div class="container">
-        <div class="header row justify-content-center align-content-center mt-5">  
-            <div class="col-lg-1 col-md-3 col-sm-4 justify-content-center align-content-center">
-                <img class="logo" src="../../../assets/Images/Logo.png" alt="IMG">
-            </div >  
-            <h1 class="text-center col-lg-4 col-md-6 col-sm-8 align-self-center justify-self-center ">Welcome to Sabeel</h1>
+<div class="mainContainer row align-items-start justify-content-center">
+    <div class="sideBar container col-2 row  justify-content-center align-items-start text-center">
+        <div class="logo col-12 row justify-content-center align-items-end mt-5 text-center w-100">
+            <img src="../../../assets/Images/Logo.png" alt="IMG" class="logo col-12 ">
+            <h1 class="col-12 align-self-center w-100 text-center w-100">Sabeel</h1>
         </div>
-        <div class="SabeelDetails"> 
-            <div class="row h-100 mb-3 p-2 ">
-                <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
-                    <label for="floatingInput">About 1</label>
-                </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
-            </div>
-
-            <div class="row h-100 mb-3 p-2 ">
-                <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
-                    <label for="floatingInput">About 2</label>
-                </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
-            </div>
-
-            <div class="row h-100 mb-3 p-2 ">
-                <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
-                    <label for="floatingInput">About 3</label>
-                </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
-            </div>
-
-            <div class="row h-100 mb-3 p-2 ">
-                <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
-                    <label for="floatingInput">Mission</label>
-                </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
-            </div>
-
-            <div class="row h-100 mb-3 p-2 ">
-                <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
-                    <label for="floatingInput">Vision</label>
-                </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
-            </div>
-
-            <div class="row h-100 mb-3 p-2 ">
-                <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
-                    <label for="floatingInput">Events' Goal</label>
-                </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
-            </div>
-
-            <div class="row h-100 mb-3 p-2 ">
-                <div class="form-floating col-11">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="16 Years">
-                    <label for="floatingInput">Year Of Experience </label>
-                </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
-            </div>
-            <div class="row h-100 mb-3 p-2 ">
-                <div class="form-floating col-11">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="3654">
-                    <label for="floatingInput">Number of Attendees</label>
-                </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
-            </div>
-            <div class="row h-100 mb-3 p-2 ">
-                <div class="form-floating col-11">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="53">
-                    <label for="floatingInput">Number of Events</label>
-                </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
-            </div>
-            <div class="row h-100 mb-3 p-2 ">
-                <div class="form-floating col-11">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="2000 EGP">
-                    <label for="floatingInput">Funds Collected</label>
-                </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
-            </div>
-           
+        <div class="nav row justify-content-center align-items-start" >
+            <button class="btn btn-primary col-10" (click)="GoToAbout()">About Sabeel</button>
+            <button class="btn btn-primary col-10" (click)="GoToEvents()">Events</button>
+            <button class="btn btn-primary col-10" (click)="GoToContacts()">Contact Us</button>
+            <button class="btn btn-primary col-10" (click)="GoToTeam()">Team</button>
+        </div>
     </div>
-    
+    <div class="content align-items-start">
+        <router-outlet></router-outlet>
+    </div>
 </div>

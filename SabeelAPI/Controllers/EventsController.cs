@@ -19,37 +19,37 @@ namespace SabeelAPI.Controllers
 
     [HttpGet]
     [Route("GetAll")]
-    public IActionResult Get()
+    public async Task<IActionResult> Get()
     {
-      var events = _unitOfWork.Events.GetAll();
-      return Ok(events);
+      var response = await _unitOfWork.Events.GetAll();
+      return Ok(response);
     }
     [Authorize(Roles = "Admin")]
     [HttpPost]
     [Route("Add")]
-    public IActionResult Add(Event events)
+    public async Task<IActionResult> Add(Event events)
     {
-      _unitOfWork.Events.Add(events);
+      var response = await _unitOfWork.Events.Add(events);
       _unitOfWork.Complete();
-      return Ok(events);
+      return Ok(response);
     }
     [Authorize(Roles = "Admin")]
     [HttpPut]
     [Route("Update")]
     public IActionResult Update(Event events)
     {
-      _unitOfWork.Events.Update(events);
+      var response  = _unitOfWork.Events.Update(events);
       _unitOfWork.Complete();
-      return Ok(events);
+      return Ok(response);
     }
     [Authorize(Roles = "Admin")]
     [HttpDelete]
     [Route("Delete")]
-    public IActionResult Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
-      _unitOfWork.Events.Delete(id);
+      var response = await _unitOfWork.Events.Delete(id);
       _unitOfWork.Complete();
-      return Ok(id);
+      return Ok(response);
     }
   }
 }

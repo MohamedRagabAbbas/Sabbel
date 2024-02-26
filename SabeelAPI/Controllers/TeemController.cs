@@ -19,37 +19,37 @@ namespace SabeelAPI.Controllers
 
     [HttpGet]
     [Route("GetAll")]
-    public IActionResult Get()
+    public async Task<IActionResult> Get()
     {
-      var teem = _unitOfWork.TeemMembers.GetAll();
-      return Ok(teem);
+      var response = await _unitOfWork.TeemMembers.GetAll();
+      return Ok(response);
     }
     [Authorize(Roles = "Admin")]
     [HttpPost]
     [Route("Add")]
-    public IActionResult Add(TeemMember teem)
+    public async Task<IActionResult> Add(TeemMember teem)
     {
-      _unitOfWork.TeemMembers.Add(teem);
+      var response = await  _unitOfWork.TeemMembers.Add(teem);
       _unitOfWork.Complete();
-      return Ok(teem);
+      return Ok(response);
     }
     [Authorize(Roles = "Admin")]
     [HttpPut]
     [Route("Update")]
     public IActionResult Update(TeemMember teem)
     {
-      _unitOfWork.TeemMembers.Update(teem);
+      var response =  _unitOfWork.TeemMembers.Update(teem);
       _unitOfWork.Complete();
-      return Ok(teem);
+      return Ok(response);
     }
     [Authorize(Roles = "Admin")]
     [HttpDelete]
     [Route("Delete")]
-    public IActionResult Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
-      _unitOfWork.TeemMembers.Delete(id);
+      var response = await _unitOfWork.TeemMembers.Delete(id);
       _unitOfWork.Complete();
-      return Ok(id);
+      return Ok(response);
     }
   }
 }

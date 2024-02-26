@@ -20,13 +20,15 @@ export class DashboardComponent {
   }
 
   GoToContacts() {
-
+    this.router.navigate(["dashboard/contacts"]);
   }
   GoToTeam()
   {
+    this.router.navigate(["dashboard/Team"]);
   }
   GoToEvents()
   {
+    this.router.navigate(["dashboard/Events"]);
   }
 
 }

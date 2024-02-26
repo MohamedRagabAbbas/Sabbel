@@ -11,12 +11,13 @@
     background: radial-gradient(circle, rgba(174,238,179,1) 16%, rgba(1,77,75,1) 100%);
 }
 
+
 .sideBar {
     width: 250px; /* Adjust the width of the sidebar as per your preference */
     min-height: 100%;
     background: linear-gradient(90deg, rgb(244, 247, 244) 23%, rgb(245, 247, 245) 47%, rgb(234, 250, 241) 100%);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
     position: fixed;
     top: 0;
     left: 0;

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class AuthenticationService {
 
-  constructor() { }
+  private url = "https://localhost:7089/";
+  constructor(private http:HttpClient) 
+  {
+
+  }
+  login()
+  {
+    this.http.get
+  }
 }

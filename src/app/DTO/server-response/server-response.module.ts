@@ -9,10 +9,8 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class AuthenticationResponseModule {
-  Id:number = 0;
-  Role:string = "";
-  IsAuthenticated:boolean = false;
-  Token:string = "";
-  Message:string = "";
+export class ServerResponseModule {
+  message:string = "";
+  isSuccess:boolean = false;
+  data:any = null;
  }

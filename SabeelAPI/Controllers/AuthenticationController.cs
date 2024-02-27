@@ -15,7 +15,7 @@ namespace SabeelAPI.Controllers
       _authenticationService = authenticationService;
     }
     [Route("login/{email}/{password}")]
-    [HttpPost]
+    [HttpGet]
     public async Task<IActionResult> Login(string email, string password)
     {
       var response = await _authenticationService.Authenticate(email, password);

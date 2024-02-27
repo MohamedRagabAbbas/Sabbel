@@ -11,6 +11,8 @@ import { TeamComponent } from './Pages/team/team.component';
 import { FoterComponent } from './Pages/foter/foter.component';
 import { LogInComponent } from './Pages/log-in/log-in.component';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthenticationService } from './Services/authentication.service';
 
 
 
@@ -28,10 +30,12 @@ import { Router, RouterEvent, NavigationEnd } from '@angular/router';
     AchievementsComponent,
     TeamComponent,
     FoterComponent,
-    LogInComponent
+    LogInComponent,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[AuthenticationService]
 })
 export class AppComponent {
   title = 'Sabeel';

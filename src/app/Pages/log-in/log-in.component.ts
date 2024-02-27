@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthenticationService } from '../../Services/authentication.service';
 
 
 @Component({
@@ -8,11 +9,11 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
   standalone: true,
   imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './log-in.component.html',
-  styleUrl: './log-in.component.css'
+  styleUrl: './log-in.component.css',
 })
 export class LogInComponent {
   formGroup:FormGroup = new FormGroup({});
-  constructor(private router:Router, private formBuilder:FormBuilder)
+  constructor(private router:Router, private formBuilder:FormBuilder,private authenticationService:AuthenticationService)
   {
     this.formGroup = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -21,10 +22,6 @@ export class LogInComponent {
   }
   LogIn()
   {
-    console.log("Log In");
-    console.log(this.formGroup.value);
-    console.log(this.formGroup.controls['email'].value);
-    console.log(this.formGroup.controls['password'].value);
-    //this.router.navigate(['/dashboard']);
+    this.authenticationService.login(this.formGroup.get('email')?.value, this.formGroup.get('password')?.value);
   }
 }

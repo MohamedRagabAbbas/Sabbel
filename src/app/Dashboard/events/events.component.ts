@@ -26,6 +26,11 @@ export class EventsComponent {
     });
   }
   addEvent(){
-    this.sabeel.addEvent(this.newEvent,this.file);
+    const fileInputElement: HTMLInputElement = document.getElementById('filer_input2') as HTMLInputElement;
+    if(fileInputElement.files && fileInputElement.files[0]){
+      const image: Blob = fileInputElement.files[0];
+      this.sabeel.addEvent(this.newEvent,this.file, image);
+    }
+
   }
 }

@@ -91,30 +91,32 @@ export class SabeelService implements  OnInit{
   }
 
   //add delete and update methods for events
-  addEvent(event:EventModule,image:File){
-    const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    }
-     this.httpClint.post(`${this.url}Events/Add`,event).subscribe((data)=>{
+  addEvent(event:EventModule,image:File, imageBlob:Blob){
+    this.httpClint.post(`${this.url}Events/Add`, event).subscribe((data) => {
       const response = data as ServerResponseModule;
-      if(response.isSuccess==true)
-      {
-        this.httpClint.post(`${this.url}Image/Upload/${response.data.id}`,image,httpOptions).subscribe((data)=>{
+      if (response.isSuccess == true) {
+        console.log("Response", response);
+        console.log("Data", response.data);
+        console.log("Id", response.data.id);
+        console.log("Image", image);
+        
+        const formData: FormData = new FormData();
+        formData.append('file', imageBlob); // Adjust filename as needed
+    
+        this.httpClint.post(`${this.url}Image/Upload/${response.data.id}`, formData).subscribe((data) => {
           const response = data as ServerResponseModule;
-          if(response.isSuccess==true)
-          {
+          if (response.isSuccess == true) {
             this.getEvents();
-          }
-          else{
+          } else {
             console.log(response.message);
           }
         });
+    
         this.getEvents();
-      }
-      else{
+      } else {
         console.log(response.message);
       }
-     });
+    });
   }
   deleteEvent(id:number){
      this.httpClint.delete(`${this.url}Events/Delete/${id}`).subscribe((data)=>{

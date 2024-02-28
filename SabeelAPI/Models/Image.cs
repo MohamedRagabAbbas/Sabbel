@@ -8,7 +8,7 @@ namespace SabeelAPI.Models
 
     public int EventId { get; set; }
     public Event? Event { get; set; }
-    public int TeemMemberId { get; set; }
-    public TeemMember? TeemMember { get; set; }
+    public int TeamMemberId { get; set; }
+    public TeemMember? TeamMember { get; set; }
   }
 }

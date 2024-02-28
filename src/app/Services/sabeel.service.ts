@@ -53,6 +53,9 @@ export class SabeelService implements  OnInit{
       }
      });
   }
+  getContactsObservable(){
+    return this.httpClint.get(`${this.url}Contacts/GetById/1`);
+  }
   getTeam(){
      this.httpClint.get(`${this.url}Teem/GetAll`).subscribe((data)=>{
       const response = data as ServerResponseModule;
@@ -65,6 +68,9 @@ export class SabeelService implements  OnInit{
       }
      });
   }
+  getTeamObservable(){
+    return this.httpClint.get(`${this.url}Teem/GetAll`);
+  }
   getEvents(){
      this.httpClint.get(`${this.url}Events/GetAll`).subscribe((data)=>{
       const response = data as ServerResponseModule;
@@ -76,6 +82,9 @@ export class SabeelService implements  OnInit{
         console.log(response.message);
       }
      });
+  }
+  getEventsObservable(){
+    return this.httpClint.get(`${this.url}Events/GetAll`);
   }
 
   //add delete and update methods for events

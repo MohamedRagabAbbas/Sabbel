@@ -9,26 +9,27 @@
         <div class="SabeelDetails"> 
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="+20 01234567890">
+                    <!-- Add the import statement for FormsModule -->
+                    <input type="text" class="form-control " id="floatingInput" placeholder="+20 01234567890" [(ngModel)]="contacts.phoneNumber" [ngModelOptions]="{standalone: true}" >
                     <label for="floatingInput">Phone Number</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
 
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel@aucegypt.edu">
+                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel@aucegypt.edu" [(ngModel)]="contacts.email" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">Email</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
 
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="AUC New Cairo">
+                    <input type="text" class="form-control " id="floatingInput" placeholder="AUC New Cairo" [(ngModel)]="contacts.address" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">Address</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
     </div>
 </div>

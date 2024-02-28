@@ -24,7 +24,7 @@ namespace SabeelAPI.Controllers
       var response = await _unitOfWork.TeemMembers.GetAll();
       return Ok(response);
     }
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     [HttpPost]
     [Route("Add")]
     public async Task<IActionResult> Add(TeemMember teem)

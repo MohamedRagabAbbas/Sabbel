@@ -12,8 +12,8 @@ using SabeelAPI.DB;
 namespace SabeelAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240228123252_initialMigration")]
-    partial class initialMigration
+    [Migration("20240228123952_FM")]
+    partial class FM
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -333,7 +333,10 @@ namespace SabeelAPI.Migrations
             modelBuilder.Entity("SabeelAPI.Models.Event", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -416,6 +419,9 @@ namespace SabeelAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EventId")
+                        .IsUnique();
 
                     b.HasIndex("TeemMemberId")
                         .IsUnique();
@@ -530,31 +536,28 @@ namespace SabeelAPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SabeelAPI.Models.Event", b =>
+            modelBuilder.Entity("SabeelAPI.Models.Image", b =>
                 {
-                    b.HasOne("SabeelAPI.Models.Image", "Image")
-                        .WithOne("Event")
-                        .HasForeignKey("SabeelAPI.Models.Event", "Id")
+                    b.HasOne("SabeelAPI.Models.Event", "Event")
+                        .WithOne("Image")
+                        .HasForeignKey("SabeelAPI.Models.Image", "EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Image");
-                });
-
-            modelBuilder.Entity("SabeelAPI.Models.Image", b =>
-                {
                     b.HasOne("SabeelAPI.Models.TeemMember", "TeemMember")
                         .WithOne("Image")
                         .HasForeignKey("SabeelAPI.Models.Image", "TeemMemberId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Event");
+
                     b.Navigation("TeemMember");
                 });
 
-            modelBuilder.Entity("SabeelAPI.Models.Image", b =>
+            modelBuilder.Entity("SabeelAPI.Models.Event", b =>
                 {
-                    b.Navigation("Event");
+                    b.Navigation("Image");
                 });
 
             modelBuilder.Entity("SabeelAPI.Models.TeemMember", b =>

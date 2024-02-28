@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -8,13 +8,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SabeelAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class initialMigration : Migration
+    public partial class FM : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            // add role admin
-            migrationBuilder.Sql("INSERT INTO AspNetRoles (Id, [Name], NormalizedName) VALUES ('1', 'Admin', 'ADMIN')");
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -92,6 +90,24 @@ namespace SabeelAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Details", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Events",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    price = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Duration = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsNonAucianAllowed = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Events", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -229,32 +245,15 @@ namespace SabeelAPI.Migrations
                 {
                     table.PrimaryKey("PK_Image", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Image_Events_EventId",
+                        column: x => x.EventId,
+                        principalTable: "Events",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Image_TeemMembers_TeemMemberId",
                         column: x => x.TeemMemberId,
                         principalTable: "TeemMembers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Events",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    price = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Duration = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsNonAucianAllowed = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Events", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Events_Image_Id",
-                        column: x => x.Id,
-                        principalTable: "Image",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -329,6 +328,12 @@ namespace SabeelAPI.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Image_EventId",
+                table: "Image",
+                column: "EventId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Image_TeemMemberId",
                 table: "Image",
                 column: "TeemMemberId",
@@ -338,8 +343,6 @@ namespace SabeelAPI.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-          // drop the role admin
-          migrationBuilder.Sql("DELETE FROM AspNetRoles WHERE Name = 'Admin'");
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -362,7 +365,7 @@ namespace SabeelAPI.Migrations
                 name: "Details");
 
             migrationBuilder.DropTable(
-                name: "Events");
+                name: "Image");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -371,7 +374,7 @@ namespace SabeelAPI.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Image");
+                name: "Events");
 
             migrationBuilder.DropTable(
                 name: "TeemMembers");

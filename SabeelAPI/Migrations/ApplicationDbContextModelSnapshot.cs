@@ -250,7 +250,7 @@ namespace SabeelAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
 
                     b.HasData(
                         new
@@ -308,7 +308,7 @@ namespace SabeelAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Details");
+                    b.ToTable("Details", (string)null);
 
                     b.HasData(
                         new
@@ -346,8 +346,9 @@ namespace SabeelAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ImageId")
-                        .HasColumnType("int");
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsNonAucianAllowed")
                         .HasColumnType("bit");
@@ -362,11 +363,7 @@ namespace SabeelAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ImageId")
-                        .IsUnique()
-                        .HasFilter("[ImageId] IS NOT NULL");
-
-                    b.ToTable("Events");
+                    b.ToTable("Events", (string)null);
 
                     b.HasData(
                         new
@@ -375,6 +372,7 @@ namespace SabeelAPI.Migrations
                             Date = new DateTime(2022, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The Arab Youth Summit is an annual event that brings together young people from across the Arab world to engage in dialogue, exchange ideas, and develop innovative solutions to the challenges facing their communities. The summit features a wide range of workshops, panel discussions, and cultural activities, providing participants with the opportunity to connect with like-minded peers and gain valuable skills and knowledge.",
                             Duration = "",
+                            Image = "https://via.placeholder.com/150",
                             IsNonAucianAllowed = false,
                             Title = "Arab Youth Summit",
                             price = "Free"
@@ -385,6 +383,7 @@ namespace SabeelAPI.Migrations
                             Date = new DateTime(2022, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The Cultural Exchange Program is a unique opportunity for young people to immerse themselves in the rich cultural heritage of the Arab world. Participants will have the chance to explore historical sites, engage with local communities, and learn about the traditions and customs of the region. The program aims to foster a deeper understanding and appreciation of Arab culture and identity, while promoting cross-cultural dialogue and friendship.",
                             Duration = "",
+                            Image = "https://via.placeholder.com/150",
                             IsNonAucianAllowed = false,
                             Title = "Cultural Exchange Program",
                             price = "Free"
@@ -395,30 +394,11 @@ namespace SabeelAPI.Migrations
                             Date = new DateTime(2022, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "The Youth Leadership Workshop is designed to equip young people with the skills and knowledge they need to become effective leaders and change-makers in their communities. Through a series of interactive sessions and activities, participants will learn about leadership styles, communication strategies, and project management, while also gaining insights into the social and political issues facing the Arab world. The workshop aims to inspire and empower young people to take on leadership roles and make a positive impact in their societies.",
                             Duration = "",
+                            Image = "https://via.placeholder.com/150",
                             IsNonAucianAllowed = false,
                             Title = "Youth Leadership Workshop",
                             price = "Free"
                         });
-                });
-
-            modelBuilder.Entity("SabeelAPI.Models.Image", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<byte[]>("ImageData")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("ImageDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Image");
                 });
 
             modelBuilder.Entity("SabeelAPI.Models.TeemMember", b =>
@@ -433,8 +413,9 @@ namespace SabeelAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ImageId")
-                        .HasColumnType("int");
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -442,31 +423,28 @@ namespace SabeelAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ImageId")
-                        .IsUnique();
-
-                    b.ToTable("TeemMembers");
+                    b.ToTable("TeemMembers", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             Description = "Ahmad is the founder of Sabeel and has been a driving force behind the organization since its inception. He is deeply passionate about empowering Arab youth and fostering a sense of pride and appreciation for their cultural heritage.",
-                            ImageId = 0,
+                            Image = "",
                             Name = "Ahmad"
                         },
                         new
                         {
                             Id = 2,
                             Description = "Ahmad is the founder of Sabeel and has been a driving force behind the organization since its inception. He is deeply passionate about empowering Arab youth and fostering a sense of pride and appreciation for their cultural heritage.",
-                            ImageId = 0,
+                            Image = "",
                             Name = "Ahmad"
                         },
                         new
                         {
                             Id = 3,
                             Description = "Ahmad is the founder of Sabeel and has been a driving force behind the organization since its inception. He is deeply passionate about empowering Arab youth and fostering a sense of pride and appreciation for their cultural heritage.",
-                            ImageId = 0,
+                            Image = "",
                             Name = "Ahmad"
                         });
                 });
@@ -535,34 +513,6 @@ namespace SabeelAPI.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("SabeelAPI.Models.Event", b =>
-                {
-                    b.HasOne("SabeelAPI.Models.Image", "Image")
-                        .WithOne("Event")
-                        .HasForeignKey("SabeelAPI.Models.Event", "ImageId")
-                        .OnDelete(DeleteBehavior.NoAction);
-
-                    b.Navigation("Image");
-                });
-
-            modelBuilder.Entity("SabeelAPI.Models.TeemMember", b =>
-                {
-                    b.HasOne("SabeelAPI.Models.Image", "Image")
-                        .WithOne("TeemMember")
-                        .HasForeignKey("SabeelAPI.Models.TeemMember", "ImageId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Image");
-                });
-
-            modelBuilder.Entity("SabeelAPI.Models.Image", b =>
-                {
-                    b.Navigation("Event");
-
-                    b.Navigation("TeemMember");
                 });
 #pragma warning restore 612, 618
         }

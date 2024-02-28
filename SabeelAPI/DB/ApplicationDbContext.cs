@@ -93,16 +93,8 @@ namespace SabeelAPI.DB
         }
       ); 
 
-     builder.Entity<Event>()
-        .HasOne(e => e.Image)
-        .WithOne(i => i.Event)
-        .HasForeignKey<Event>(e => e.ImageId)
-        .OnDelete(DeleteBehavior.NoAction);
-     builder.Entity<TeemMember>()
-        .HasOne(t => t.Image)
-        .WithOne(i => i.TeemMember)
-        .HasForeignKey<TeemMember>(t => t.ImageId)
-        .OnDelete(DeleteBehavior.NoAction);
+    builder.Entity<Image>().HasOne(e => e.Event).WithOne(e => e.Image).HasForeignKey<Image>(e => e.EventId);
+    builder.Entity<Event>().HasOne(e => e.Image).WithOne(e => e.Event).HasForeignKey<Event>(e => e.Id);
 
       base.OnModelCreating(builder);
     }

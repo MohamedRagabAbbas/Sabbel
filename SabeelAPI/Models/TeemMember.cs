@@ -6,6 +6,7 @@ namespace SabeelAPI.Models
     public string Name { get; set; } = string.Empty;
     public string Postion = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public string Image { get; set; } = string.Empty;
+    public int ImageId { get; set; }
+    public Image? Image { get; set; }
   }
 }

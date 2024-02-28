@@ -96,11 +96,13 @@ namespace SabeelAPI.DB
      builder.Entity<Event>()
         .HasOne(e => e.Image)
         .WithOne(i => i.Event)
-        .HasForeignKey<Event>(e => e.ImageId);
+        .HasForeignKey<Event>(e => e.ImageId)
+        .OnDelete(DeleteBehavior.NoAction);
      builder.Entity<TeemMember>()
         .HasOne(t => t.Image)
         .WithOne(i => i.TeemMember)
-        .HasForeignKey<TeemMember>(t => t.ImageId);
+        .HasForeignKey<TeemMember>(t => t.ImageId)
+        .OnDelete(DeleteBehavior.NoAction);
 
       base.OnModelCreating(builder);
     }

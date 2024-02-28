@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -92,13 +92,13 @@ namespace SabeelAPI.Migrations
                 name: "IX_TeemMembers_ImageId",
                 table: "TeemMembers",
                 column: "ImageId",
-                unique: true);
+                unique: false);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Events_ImageId",
                 table: "Events",
                 column: "ImageId",
-                unique: true);
+                unique: false);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Events_Image_ImageId",

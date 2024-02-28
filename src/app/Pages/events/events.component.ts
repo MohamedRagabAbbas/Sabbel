@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SabeelService } from '../../Services/sabeel.service';
 
 @Component({
   selector: 'events',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './events.component.css'
 })
 export class EventsComponent {
+  constructor(public sabeel:SabeelService) {
+  }
+
 
 }

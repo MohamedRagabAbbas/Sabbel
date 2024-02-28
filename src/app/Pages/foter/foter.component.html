@@ -4,29 +4,36 @@
             <div class="col-md-4 col-sm-12 p-4 justify-content-center">
                 <h2>About Us</h2>
                 <p>
-                    Smart Eye is a leading provider of information technology, consulting, and business process services. Our dedicated employees offer strategic insights, technological expertise and industry experience.
+                    {{sabeel.aboutSabeel.about1}} <br>
                 </p>
-                <p>We focus on technologies that promise to reduce costs, streamline processes and speed time-to-market, Backed by our strong quality processes and rich experience managing global... </p>
+                <p>{{sabeel.aboutSabeel.about2}} </p>
             </div>
             <div class="col-md-4 col-sm-12 p-4 justify-content-center">
                 <h2>Useful Links</h2>
                 <ul class="list-unstyled link-list">
                     <li><a ui-sref="about" href="#/about">About us</a><i class="fa fa-angle-right"></i></li>
-                    <li><a ui-sref="portfolio" href="#/portfolio">Portfolio</a><i class="fa fa-angle-right"></i></li>
-                    <li><a ui-sref="products" href="#/products">Latest jobs</a><i class="fa fa-angle-right"></i></li>
-                    <li><a ui-sref="gallery" href="#/gallery">Gallery</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="Mission" href="#/portfolio">Mission</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="Vision" href="#/products">Vision</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="Events" href="#/gallery">Events</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="Meat Our Team" href="#/gallery">Meat Our Team</a><i class="fa fa-angle-right"></i></li>
                     <li><a ui-sref="contact" href="#/contact">Contact us</a><i class="fa fa-angle-right"></i></li>
                 </ul>
             </div>
             <div class="col-md-4 col-sm-12 map-img p-4 justify-content-center">
                 <h2>Contact Us</h2>
                 <address class="md-margin-bottom-40">
-                    BlueDart <br>
-                    Marthandam (K.K District) <br>
-                    Tamil Nadu, IND <br>
-                    Phone: +91 9159669599 <br>
-                    Email: <a href="mailto:info@anybiz.com" class="">info bluedart.in</a><br>
-                    Web: <a href="smart-eye.html" class="">www.bluedart.in</a>
+                    Sabeel Organization <br>
+                    {{sabeel.contacts.address}} <br>
+                    Phone: {{sabeel.contacts.phoneNumber}} <br>
+                    Email: <a href="mailto:info@anybiz.com" class="">{{sabeel.contacts.email}}</a><br>
+                    Web: <a href="smart-eye.html" class="">www.sabeel.com</a> <br>
+                    <span class="socialMediaLogos col-lg-4 col-md-12 ">
+                        <fa-icon [icon]="faFacebook" class="icon"></fa-icon>
+                        <fa-icon [icon]="faInstagram" class="icon"></fa-icon>
+                        <fa-icon [icon]="faLinkedin" class="icon"></fa-icon>
+                        <fa-icon [icon]="faTwitter" class="icon"></fa-icon>
+                        <fa-icon [icon]="faYoutube" class="icon"></fa-icon>
+                    </span>
                 </address>
 
             </div>
@@ -35,15 +42,3 @@
     
 
 </footer>
-<div class="copy">
-        <div class="container row">
-            <a class="col-lg-8 col-md-12" href="https://www.smarteyeapps.com/">2015 &copy; All Rights Reserved | Designed and Developed by Smarteyeapps</a>
-            <span class="socialMediaLogos col-lg-4 col-md-12 justify-content-between">
-                <fa-icon [icon]="faFacebook" class="icon"></fa-icon>
-                <fa-icon [icon]="faInstagram" class="icon"></fa-icon>
-                <fa-icon [icon]="faLinkedin" class="icon"></fa-icon>
-                <fa-icon [icon]="faTwitter" class="icon"></fa-icon>
-                <fa-icon [icon]="faYoutube" class="icon"></fa-icon>
-            </span>
-        </div>
-</div>

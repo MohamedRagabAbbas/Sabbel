@@ -5,6 +5,7 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { SabeelService } from '../../Services/sabeel.service';
 
 
 
@@ -22,5 +23,8 @@ export class FoterComponent {
   faInstagram = faInstagram;
   faYoutube = faYoutube;
   faLinkedin = faLinkedin;
+
+  constructor(public sabeel:SabeelService) {
+  }
 }
 

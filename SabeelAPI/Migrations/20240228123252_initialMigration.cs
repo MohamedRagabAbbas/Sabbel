@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -13,6 +13,8 @@ namespace SabeelAPI.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            // add role admin
+            migrationBuilder.Sql("INSERT INTO AspNetRoles (Id, [Name], NormalizedName) VALUES ('1', 'Admin', 'ADMIN')");
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -336,6 +338,8 @@ namespace SabeelAPI.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+          // drop the role admin
+          migrationBuilder.Sql("DELETE FROM AspNetRoles WHERE Name = 'Admin'");
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

@@ -16,6 +16,7 @@ export class EventsComponent {
   events: Array<EventModule> = new Array<EventModule>();
   newEvent: EventModule = new EventModule();
   constructor(private sabeel: SabeelService) {
+
     this.sabeel.getEventsObservable().subscribe((data) => {
       const response = data as ServerResponseModule;
       if (response.isSuccess == true) {
@@ -29,7 +30,7 @@ export class EventsComponent {
     const fileInputElement: HTMLInputElement = document.getElementById('filer_input2') as HTMLInputElement;
     if(fileInputElement.files && fileInputElement.files[0]){
       const image: Blob = fileInputElement.files[0];
-      this.sabeel.addEvent(this.newEvent,this.file, image);
+      this.sabeel.addEvent(this.newEvent, image);
     }
 
   }

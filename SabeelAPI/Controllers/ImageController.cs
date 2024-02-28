@@ -16,11 +16,26 @@ namespace SabeelAPI.Controllers
       _unitOfWork = unitOfWork;
     }
     [HttpPost]
-    [Route("Upload/{id}")]
-    public async Task<IActionResult> Upload(IFormFile file,int id)
+    [Route("Upload-Image-Event/{id}")]
+    public async Task<IActionResult> UploadImageEvent(IFormFile file,int id)
     {
       var Image = new Image();
       Image.EventId = id;
+      Image.ImageData = new byte[file.Length];
+      using (var stream = new MemoryStream())
+      {
+        await file.CopyToAsync(stream);
+        Image.ImageData = stream.ToArray();
+      }
+      var response = await _unitOfWork.Images.Add(Image);
+      return Ok(response);
+    }
+    [HttpPost]
+    [Route("Upload-Image-Member/{id}")]
+    public async Task<IActionResult> UploadImageMember(IFormFile file, int id)
+    {
+      var Image = new Image();
+      Image.TeamMemberId = id;
       Image.ImageData = new byte[file.Length];
       using (var stream = new MemoryStream())
       {

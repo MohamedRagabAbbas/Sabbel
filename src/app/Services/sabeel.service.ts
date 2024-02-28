@@ -91,13 +91,13 @@ export class SabeelService implements  OnInit{
   }
 
   //add delete and update methods for events
-  addEvent(event:EventModule,image:File, imageBlob:Blob){
+  addEvent(event:EventModule, imageBlob:Blob){
     this.httpClint.post(`${this.url}Events/Add`, event).subscribe((data) => {
       const response = data as ServerResponseModule;
       if (response.isSuccess == true) {
         const formData: FormData = new FormData();
         formData.append('file', imageBlob); // Adjust filename as needed
-        this.httpClint.post(`${this.url}Image/Upload/${response.data.id}`, formData).subscribe((data) => {
+        this.httpClint.post(`${this.url}Image/Upload-Image-Event/${response.data.id}`, formData).subscribe((data) => {
           const response = data as ServerResponseModule;
           if (response.isSuccess == true) {
             this.getEvents();
@@ -137,12 +137,24 @@ export class SabeelService implements  OnInit{
   }
 
   //add delete and update methods for Team
-  addTeamMember(member:TeamMemberModule){
+  addTeamMember(member:TeamMemberModule, imageBlob:Blob){
      this.httpClint.post(`${this.url}Teem/Add`,member).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
-        this.getTeam();
+        const formData: FormData = new FormData();
+        formData.append('file', imageBlob); // Adjust filename as needed
+        this.httpClint.post(`${this.url}Image/Upload-Image-Member/${response.data.id}`, formData).subscribe((data)=>{
+          const response = data as ServerResponseModule;
+          if(response.isSuccess==true)
+          {
+            this.getTeam();
+          }
+          else{
+            console.log(response.message);
+          }
+           this.getTeam();
+        });
       }
       else{
         console.log(response.message);

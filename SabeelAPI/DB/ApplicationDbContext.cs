@@ -96,6 +96,15 @@ namespace SabeelAPI.DB
         }
       ); 
 
+     builder.Entity<Event>()
+        .HasOne(e => e.Image)
+        .WithOne(i => i.Event)
+        .HasForeignKey<Event>(e => e.ImageId);
+     builder.Entity<TeemMember>()
+        .HasOne(t => t.Image)
+        .WithOne(i => i.TeemMember)
+        .HasForeignKey<TeemMember>(t => t.ImageId);
+
       base.OnModelCreating(builder);
     }
 

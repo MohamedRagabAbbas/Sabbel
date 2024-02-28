@@ -18,6 +18,7 @@ export class AboutSabeelModule {
   vision:string = "";
   eventsGoal:string = "";
   yearsOfExperience:number = 0;
+  attendees:number = 0;
   events:number = 0;
   funds:number = 0;
  }

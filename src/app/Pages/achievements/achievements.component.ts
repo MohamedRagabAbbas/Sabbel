@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SabeelService } from '../../Services/sabeel.service';
 
 @Component({
   selector: 'achievements',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './achievements.component.css'
 })
 export class AchievementsComponent {
+  constructor(public sabeel:SabeelService) {
+  }
 
 }

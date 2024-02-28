@@ -74,7 +74,6 @@ namespace SabeelAPI.DB
           Date = DateTime.Parse("2022-05-01"),
           price = "Free",
           Description = "The Arab Youth Summit is an annual event that brings together young people from across the Arab world to engage in dialogue, exchange ideas, and develop innovative solutions to the challenges facing their communities. The summit features a wide range of workshops, panel discussions, and cultural activities, providing participants with the opportunity to connect with like-minded peers and gain valuable skills and knowledge.",
-          Image = "https://via.placeholder.com/150",
         },
         new Event
         {
@@ -83,7 +82,6 @@ namespace SabeelAPI.DB
           Date = DateTime.Parse("2022-07-15"),
           price = "Free",
           Description = "The Cultural Exchange Program is a unique opportunity for young people to immerse themselves in the rich cultural heritage of the Arab world. Participants will have the chance to explore historical sites, engage with local communities, and learn about the traditions and customs of the region. The program aims to foster a deeper understanding and appreciation of Arab culture and identity, while promoting cross-cultural dialogue and friendship.",
-          Image = "https://via.placeholder.com/150",
         },
         new Event
         {
@@ -92,7 +90,6 @@ namespace SabeelAPI.DB
           Date = DateTime.Parse("2022-09-30"),
           price = "Free",
           Description = "The Youth Leadership Workshop is designed to equip young people with the skills and knowledge they need to become effective leaders and change-makers in their communities. Through a series of interactive sessions and activities, participants will learn about leadership styles, communication strategies, and project management, while also gaining insights into the social and political issues facing the Arab world. The workshop aims to inspire and empower young people to take on leadership roles and make a positive impact in their societies.",
-          Image = "https://via.placeholder.com/150",
         }
       ); 
 

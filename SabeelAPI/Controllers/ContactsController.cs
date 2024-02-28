@@ -25,7 +25,7 @@ namespace SabeelAPI.Controllers
       return Ok(response);
     }
     [HttpGet]
-    [Route("GetById")]
+    [Route("GetById/{id}")]
     public async Task<IActionResult> GetById(int id)
     {
       var response = await _unitOfWork.Contacts.GetById(id);

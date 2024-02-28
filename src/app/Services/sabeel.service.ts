@@ -13,7 +13,7 @@ import { ServerResponseModule } from '../DTO/server-response/server-response.mod
 export class SabeelService implements  OnInit{
 
   url:string = "https://localhost:7089/api/";
-  public aboutSabeel:AboutSabeelModule = new AboutSabeelModule();
+  public  aboutSabeel:AboutSabeelModule = new AboutSabeelModule();
   public contacts:ContactsModule = new ContactsModule();
   public team:TeamMemberModule[] = new Array<TeamMemberModule>();
   public events: EventModule[] = new Array<EventModule>(); 

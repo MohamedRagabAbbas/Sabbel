@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee,faHandshakeAngle, faMoneyBillWave, faDonate, faUser } from '@fortawesome/free-solid-svg-icons';
+import { SabeelService } from '../../Services/sabeel.service';
 
 @Component({
   selector: 'about',
@@ -15,4 +16,9 @@ export class AboutComponent {
   faMoneyBillWave = faMoneyBillWave;
   faDonate = faDonate;
   faUser = faUser;
+
+  constructor(public sabeel:SabeelService) {
+    sabeel.ngOnInit();
+   }
+
 }

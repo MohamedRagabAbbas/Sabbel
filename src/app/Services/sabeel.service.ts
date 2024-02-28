@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AboutSabeelModule } from '../Models/about-sabeel/about-sabeel.module';
 import { ContactsModule } from '../Models/contacts/contacts.module';
@@ -6,6 +6,7 @@ import { TeamMemberModule } from '../Models/team-member/team-memebr.module';
 import { EventModule } from '../Models/event/event.module';
 import { OnInit } from '@angular/core';
 import { ServerResponseModule } from '../DTO/server-response/server-response.module';
+import { ImageModule } from '../Models/image/image.module';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,8 @@ export class SabeelService implements  OnInit{
   public contacts:ContactsModule = new ContactsModule();
   public team:TeamMemberModule[] = new Array<TeamMemberModule>();
   public events: EventModule[] = new Array<EventModule>(); 
+
+
 
   constructor(private httpClint:HttpClient) { this.ngOnInit()}
   ngOnInit(){
@@ -88,11 +91,24 @@ export class SabeelService implements  OnInit{
   }
 
   //add delete and update methods for events
-  addEvent(event:EventModule){
+  addEvent(event:EventModule,image:File){
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
      this.httpClint.post(`${this.url}Events/Add`,event).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
+        this.httpClint.post(`${this.url}Image/Upload/${response.data.id}`,image,httpOptions).subscribe((data)=>{
+          const response = data as ServerResponseModule;
+          if(response.isSuccess==true)
+          {
+            this.getEvents();
+          }
+          else{
+            console.log(response.message);
+          }
+        });
         this.getEvents();
       }
       else{

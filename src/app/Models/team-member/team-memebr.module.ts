@@ -15,5 +15,5 @@ export class TeamMemberModule {
   name:string = "";
   position:string = "";
   description:string = "";
-  image:ImageModule = new ImageModule();
+  //image:ImageModule = new ImageModule();
  }

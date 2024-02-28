@@ -9,6 +9,7 @@ namespace SabeelAPI.IService
     IGenericRepository<Contacts> Contacts { get; }
     IGenericRepository<TeemMember> TeemMembers { get; }
     IGenericRepository<Event> Events { get; }
+    IGenericRepository<Models.Image> Images { get; }
 
     int Complete();
   }

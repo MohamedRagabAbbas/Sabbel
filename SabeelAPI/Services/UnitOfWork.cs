@@ -12,6 +12,8 @@ namespace SabeelAPI.Services
     public IGenericRepository<Contacts> Contacts { get; private set; }
     public IGenericRepository<TeemMember> TeemMembers { get; private set; }
     public IGenericRepository<Event> Events { get; private set; }
+    public IGenericRepository<Image> Images { get; private set; }
+
 
     public UnitOfWork(ApplicationDbContext dbContext)
     {
@@ -20,6 +22,8 @@ namespace SabeelAPI.Services
       Contacts = new GenericRepository<Contacts>(_dbContext);
       TeemMembers = new GenericRepository<TeemMember>(_dbContext);
       Events = new GenericRepository<Event>(_dbContext);
+      Images = new GenericRepository<Image>(_dbContext);
+
     }
 
 

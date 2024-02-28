@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SabeelService } from '../../Services/sabeel.service';
 
 @Component({
   selector: 'mission-vision',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './mission-vision.component.css'
 })
 export class MissionVisionComponent {
+  constructor(public sabeel:SabeelService) {
+  }
 
 }

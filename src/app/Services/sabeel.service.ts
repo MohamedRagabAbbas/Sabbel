@@ -18,7 +18,7 @@ export class SabeelService implements  OnInit{
   public team:TeamMemberModule[] = new Array<TeamMemberModule>();
   public events: EventModule[] = new Array<EventModule>(); 
 
-  constructor(private httpClint:HttpClient) { }
+  constructor(private httpClint:HttpClient) { this.ngOnInit()}
   ngOnInit(){
     this.getAboutSabeel();
     this.getContacts();

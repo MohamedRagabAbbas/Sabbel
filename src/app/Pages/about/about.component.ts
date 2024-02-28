@@ -18,7 +18,6 @@ export class AboutComponent {
   faUser = faUser;
 
   constructor(public sabeel:SabeelService) {
-    sabeel.ngOnInit();
    }
 
 }

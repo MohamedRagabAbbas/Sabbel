@@ -6,84 +6,84 @@
             </div >  
             <h1 class="text-center col-lg-6 col-md-6 col-sm-8 align-self-center justify-self-center ">Welcome to Sabeel</h1>
         </div>
-        <div class="SabeelDetails"> 
+        <form class="SabeelDetails"> 
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
+                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to..." [(ngModel)]="aboutSabeel.about1" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">About 1</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
 
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
+                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to..." [(ngModel)]="aboutSabeel.about2" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">About 2</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
 
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
+                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to..." [(ngModel)]="aboutSabeel.about3" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">About 3</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
 
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
+                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to..." [(ngModel)]="aboutSabeel.mission" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">Mission</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
 
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
+                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to..." [(ngModel)]="aboutSabeel.vision" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">Vision</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
 
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to...">
+                    <input type="text" class="form-control " id="floatingInput" placeholder="Sabeel is an organization that aims to..." [(ngModel)]="aboutSabeel.eventsGoal" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">Events' Goal</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
 
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="16 Years">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="16 Years" [(ngModel)]="aboutSabeel.yearsOfExperience" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">Year Of Experience </label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="3654">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="3654" [(ngModel)]="aboutSabeel.attendees" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">Number of Attendees</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="53">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="53" [(ngModel)]="aboutSabeel.events" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">Number of Events</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
             <div class="row h-100 mb-3 p-2 ">
                 <div class="form-floating col-11">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="2000 EGP">
+                    <input type="number" class="form-control" id="floatingInput" placeholder="2000 EGP" [(ngModel)]="aboutSabeel.funds" [ngModelOptions]="{standalone: true}">
                     <label for="floatingInput">Funds Collected</label>
                 </div>
-                <button class="btn btn-success col-1" type="button">Save</button>
+                <button class="btn btn-success col-1" type="button" (click)="Save()">Save</button>
             </div>
            
-    </div>
+        </form>
     
 </div>

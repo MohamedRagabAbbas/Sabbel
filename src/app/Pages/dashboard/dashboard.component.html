@@ -5,10 +5,10 @@
             <h1 class="col-12 align-self-center w-100 text-center w-100">Sabeel</h1>
         </div>
         <div class="nav row justify-content-center align-items-start" >
-            <button class="btn btn-outline-primary col-10" (click)="GoToAbout()">About Sabeel</button>
-            <button class="btn btn-outline-primary col-10" (click)="GoToEvents()">Events</button>
-            <button class="btn btn-outline-primary col-10" (click)="GoToContacts()">Contact Us</button>
-            <button class="btn btn-outline-primary col-10" (click)="GoToTeam()">Team</button>
+            <button class="btn  col-10" (click)="GoToAbout()" [class]="isAboutSabeelActive?'btn-primary':'btn-outline-primary'">About Sabeel</button>
+            <button class="btn  col-10" (click)="GoToEvents()" [class]="isEventsActive?'btn-primary':'btn-outline-primary'">Events</button>
+            <button class="btn  col-10" (click)="GoToContacts()" [class]="isContactsActive?'btn-primary':'btn-outline-primary'">Contact Us</button>
+            <button class="btn  col-10" (click)="GoToTeam()" [class]="isTeamActive?'btn-primary':'btn-outline-primary'">Team</button>
         </div>
     </div>
     <div class="content align-items-start">

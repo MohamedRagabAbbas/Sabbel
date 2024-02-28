@@ -40,10 +40,10 @@ namespace SabeelAPI.Controllers
       _unitOfWork.Complete();
       return Ok(response);
     }
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     [HttpPut]
     [Route("Update")]
-    public IActionResult Update(Details details)
+    public IActionResult Update([FromBody]Details details)
     {
       var response =  _unitOfWork.Details.Update(details);
       _unitOfWork.Complete();

@@ -38,6 +38,9 @@ export class SabeelService implements  OnInit{
       }
      });
   }
+  getAboutSabbelObservable(){
+    return this.httpClint.get(`${this.url}Details/GetById/1`);
+  }
   getContacts(){
      this.httpClint.get(`${this.url}Contacts/GetById/1`).subscribe((data)=>{
       const response = data as ServerResponseModule;
@@ -63,7 +66,7 @@ export class SabeelService implements  OnInit{
      });
   }
   getEvents(){
-     this.httpClint.get(`${this.url}Details/GetById`).subscribe((data)=>{
+     this.httpClint.get(`${this.url}Events/GetAll`).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
@@ -77,7 +80,7 @@ export class SabeelService implements  OnInit{
 
   //add delete and update methods for events
   addEvent(event:EventModule){
-     this.httpClint.post(`${this.url}/Events/Add`,event).subscribe((data)=>{
+     this.httpClint.post(`${this.url}Events/Add`,event).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
@@ -89,7 +92,7 @@ export class SabeelService implements  OnInit{
      });
   }
   deleteEvent(id:number){
-     this.httpClint.delete(`${this.url}/Events/Delete/${id}`).subscribe((data)=>{
+     this.httpClint.delete(`${this.url}Events/Delete/${id}`).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
@@ -101,7 +104,7 @@ export class SabeelService implements  OnInit{
      });
   }
   updateEvent(event:EventModule){
-    return this.httpClint.put(`${this.url}/Events/Update`,event).subscribe((data)=>{
+    return this.httpClint.put(`${this.url}Events/Update`,event).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
@@ -115,7 +118,7 @@ export class SabeelService implements  OnInit{
 
   //add delete and update methods for Team
   addTeamMember(member:TeamMemberModule){
-     this.httpClint.post(`${this.url}/Teem/Add`,member).subscribe((data)=>{
+     this.httpClint.post(`${this.url}Teem/Add`,member).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
@@ -127,7 +130,7 @@ export class SabeelService implements  OnInit{
      });
   }
   deleteTeamMember(id:number){
-    return this.httpClint.delete(`${this.url}/Teem/Delete/${id}`).subscribe((data)=>{
+    return this.httpClint.delete(`${this.url}Teem/Delete/${id}`).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
@@ -139,7 +142,7 @@ export class SabeelService implements  OnInit{
      });
   }
   updateTeamMember(member:TeamMemberModule){
-    return this.httpClint.put(`${this.url}/Teem/Update`,member).subscribe((data)=>{
+    return this.httpClint.put(`${this.url}Teem/Update`,member).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
@@ -153,7 +156,8 @@ export class SabeelService implements  OnInit{
 
   // update Sabeel details
   updateAboutSabeel(about:AboutSabeelModule){
-    return this.httpClint.put(`${this.url}/Details/Update`,about).subscribe((data)=>{
+    console.log(about);
+    return this.httpClint.put(`${this.url}Details/Update`,about).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
@@ -167,7 +171,7 @@ export class SabeelService implements  OnInit{
 
   // Add delete and update contacts
   addContact(contact:ContactsModule){
-    return this.httpClint.post(`${this.url}/Contacts/Add`,contact).subscribe((data)=>{
+    return this.httpClint.post(`${this.url}Contacts/Add`,contact).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
@@ -179,7 +183,7 @@ export class SabeelService implements  OnInit{
      });
   }
   deleteContact(id:number){
-    return this.httpClint.delete(`${this.url}/Contacts/Delete/${id}`).subscribe((data)=>{
+    return this.httpClint.delete(`${this.url}Contacts/Delete/${id}`).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {
@@ -191,7 +195,7 @@ export class SabeelService implements  OnInit{
      });
   }
   updateContact(contact:ContactsModule){
-    return this.httpClint.put(`${this.url}/Contacts/Update`,contact).subscribe((data)=>{
+    return this.httpClint.put(`${this.url}Contacts/Update`,contact).subscribe((data)=>{
       const response = data as ServerResponseModule;
       if(response.isSuccess==true)
       {

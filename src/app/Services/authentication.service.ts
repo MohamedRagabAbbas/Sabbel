@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthenticationResponseModule } from '../DTO/server-response/authentication-response.module';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthenticationService {
   private url = "https://localhost:7089/api/Authentication/";
   public AuthenticationResponse:AuthenticationResponseModule = new AuthenticationResponseModule();
 
-  constructor(private http:HttpClient) 
+  constructor(private http:HttpClient,private router:Router) 
   {
 
   }
@@ -28,6 +29,7 @@ export class AuthenticationService {
       {
         console.log("Token: " + this.AuthenticationResponse.token);
         localStorage.setItem("token", this.AuthenticationResponse.token);
+        this.router.navigate(['dashboard']);
       }
     });
   }

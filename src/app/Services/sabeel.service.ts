@@ -21,18 +21,21 @@ export class SabeelService implements  OnInit{
   ngOnInit(){
     
   }
+  // get methods
   getAboutSabeel(){
-    return this.httpClint.get(`${url}Details/GetAll`);
+     this.httpClint.get(`${this.url}Details/GetById/1`);
   }
   getContacts(){
-    return this.httpClint.get("http://localhost:8080/contacts");
+     this.httpClint.get(`${this.url}Contacts/GetById/1`);
   }
   getTeam(){
-    return this.httpClint.get("http://localhost:8080/team");
+     this.httpClint.get(`${this.url}Teem/GetAll/1`);
   }
   getEvents(){
-    return this.httpClint.get("http://localhost:8080/events");
+     this.httpClint.get(`${this.url}Details/GetById/1`);
   }
+
+
   addEvent(event:EventModule){
     return this.httpClint.post("http://localhost:8080/events",event);
   }

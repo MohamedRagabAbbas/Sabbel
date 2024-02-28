@@ -24,6 +24,13 @@ namespace SabeelAPI.Controllers
       var response = await _unitOfWork.Contacts.GetAll();
       return Ok(response);
     }
+    [HttpGet]
+    [Route("GetById")]
+    public async Task<IActionResult> GetById(int id)
+    {
+      var response = await _unitOfWork.Contacts.GetById(id);
+      return Ok(response);
+    }
     [Authorize(Roles = "Admin")]
     [HttpPost]
     [Route("Add")]

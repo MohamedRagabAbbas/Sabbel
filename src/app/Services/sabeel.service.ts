@@ -95,14 +95,8 @@ export class SabeelService implements  OnInit{
     this.httpClint.post(`${this.url}Events/Add`, event).subscribe((data) => {
       const response = data as ServerResponseModule;
       if (response.isSuccess == true) {
-        console.log("Response", response);
-        console.log("Data", response.data);
-        console.log("Id", response.data.id);
-        console.log("Image", image);
-        
         const formData: FormData = new FormData();
         formData.append('file', imageBlob); // Adjust filename as needed
-    
         this.httpClint.post(`${this.url}Image/Upload/${response.data.id}`, formData).subscribe((data) => {
           const response = data as ServerResponseModule;
           if (response.isSuccess == true) {
@@ -111,7 +105,6 @@ export class SabeelService implements  OnInit{
             console.log(response.message);
           }
         });
-    
         this.getEvents();
       } else {
         console.log(response.message);

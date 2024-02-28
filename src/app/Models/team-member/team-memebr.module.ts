@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ImageModule } from '../image/image.module';
 
 
 
@@ -14,5 +15,5 @@ export class TeamMemberModule {
   name:string = "";
   position:string = "";
   description:string = "";
-  image:string = "";
+  image:ImageModule = new ImageModule();
  }

@@ -9,4 +9,13 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class EventModule { }
+export class EventModule {
+  id:number = 0;
+  title:string = "";
+  description:string = "";
+  image:string = "";
+  price:number = 0;
+  date:Date = new Date();
+  duration:string = "";
+  isNonAucianAllowed:boolean = false;
+ }

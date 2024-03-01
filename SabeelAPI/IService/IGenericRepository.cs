@@ -6,6 +6,7 @@ namespace SabeelAPI.IService
   public interface IGenericRepository<T> where T : class 
   {
     Task<ServerResponse<IEnumerable<T>>> GetAll();
+    Task<ServerResponse<IEnumerable<T>>> GetAllWithInclude(List<string> includes);
     Task<ServerResponse<T>> GetById(int id);
     Task<ServerResponse<T>> FindFirst(Expression<Func<T, bool>> predicate);
     Task<ServerResponse<IEnumerable<T>>> Find(Expression<Func<T, bool>> predicate);

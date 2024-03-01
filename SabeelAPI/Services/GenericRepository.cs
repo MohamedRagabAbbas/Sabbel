@@ -25,6 +25,18 @@ namespace SabeelAPI.Services
         return new ServerResponse<IEnumerable<T>> { IsSuccess = false, Message = "No data found" };
     }
 
+    public async Task<ServerResponse<IEnumerable<T>>> GetAllWithInclude(List<string> includes)
+    {
+      var query = _dbSet.AsQueryable();
+      foreach (var include in includes)
+      {
+        query = query.Include(include);
+      }
+      var all = await query.ToListAsync();
+      if (all is not null)
+        return new ServerResponse<IEnumerable<T>> { IsSuccess = true, Data = all };
+      return new ServerResponse<IEnumerable<T>> { IsSuccess = false, Message = "No data found" };
+    }
     public async Task<ServerResponse<T>> GetById(int id)
     {
       var obj = await _dbSet.FindAsync(id);

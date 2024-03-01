@@ -45,6 +45,13 @@ namespace SabeelAPI.Controllers
       var response = await _unitOfWork.Images.Add(Image);
       return Ok(response);
     }
+    [HttpGet]
+    [Route("GetImageByEventID")]
+    public async Task<IActionResult> GetImageByEventID(int id)
+    {
+      var response = await _unitOfWork.Images.FindFirst(x => x.EventId == id);
+      return Ok(response);
+    }
 
   }
 }
